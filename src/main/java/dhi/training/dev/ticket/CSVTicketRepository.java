@@ -114,8 +114,17 @@ public class CSVTicketRepository implements TicketRepository {
 
     }
 
+    @Override
     public void saveTickets(Collection<Ticket> tickets) {
-
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, false))) {
+            writer.write("id,title,description,priority,requester,service,occurredAt,openedAt,status,closedAt,resolvedAt,assignedTo,assignedAt,createdAt,updatedAt");
+            for (Ticket ticket : tickets) {
+                writer.newLine();
+                writer.write(writeTicket(ticket));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Erreur lors de l'export CSV", e);
+        }
     }
 
 }

@@ -122,4 +122,7 @@ public class TicketManager {
         System.out.println("CRITICAL: " + critical);
         System.out.println("Temps moyen de résolution (heures): " + avgResolutionHours);
     }
+    public void exportTicketsToCsv() {
+        repository.saveTickets(repository.getTickets());
+    }
 }
