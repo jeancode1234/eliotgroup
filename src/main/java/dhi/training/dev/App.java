@@ -36,19 +36,28 @@ public class App
 
         manager.presentAllTickets();
 
-        Optional<Ticket> optionalTicket = manager.findTicketByTitle("Erreur");
-        if (optionalTicket.isPresent()) {
-            Ticket ticket = optionalTicket.get();
-
+//        Optional<Ticket> optionalTicket = manager.findTicketByTitle("Erreur");
+//        if (optionalTicket.isPresent()) {
+//            Ticket ticket = optionalTicket.get();
+//
+//            System.out.println("Ticket trouvé !!!");
+//
+//            System.out.println(ticket);
+//            System.out.println(ticket.getDescription());
+//        }
+//        else {
+//            System.out.println("Ticket n'existe pas");
+//        }
+//
+      Optional<Ticket> newoptionalTicket = manager.presentTicketById("102fc5f5-865d-4562-8045-2e5908a12af6");
+      if (newoptionalTicket.isPresent()){
+          Ticket tick = newoptionalTicket.get();
+//
             System.out.println("Ticket trouvé !!!");
 
-            System.out.println(ticket);
-            System.out.println(ticket.getDescription());
-        }
-        else {
-            System.out.println("Ticket n'existe pas");
-        }
-
+            System.out.println(tick);
+            System.out.println(tick.getDescription());
+      }
 
     }
 }

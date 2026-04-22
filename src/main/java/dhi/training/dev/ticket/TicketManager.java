@@ -43,6 +43,24 @@ public class TicketManager {
 
         return result;
     }
+    public Optional<Ticket> findTicketByStatus(TicketStatus status) {
+
+        for (Ticket ticket : repository.getTickets()) {
+            if (ticket.getStatus().equals(status))
+                return Optional.of(ticket);
+        }
+
+        return Optional.empty();
+    }
+    public Set<Ticket> findAllByStatus(TicketStatus status) {
+
+        Set<Ticket> result = new HashSet<>();
+        for (Ticket ticket : repository.getTickets()) {
+            if (ticket.getStatus() == status) result.add(ticket);
+        }
+
+        return result;
+    }
 
     public void presentAllTickets() {
 
@@ -50,16 +68,25 @@ public class TicketManager {
             System.out.println(ticket);
         }
     }
-    public Optional<Ticket> presentTicketById(String id){
-      for (Ticket ticket: repository.getTickets()){
-          if (ticket.getId().equals(id)){
-              System.out.println(ticket);
-              return Optional.of(ticket);
-          }
-      }
+
+    public Optional<Ticket> presentTicketById(String id) {
+        for (Ticket ticket : repository.getTickets()) {
+            if (ticket.getId().equals(id)) {
+                System.out.println(ticket);
+                return Optional.of(ticket);
+            }
+        }
         System.out.println("Ticket n'existe pas ");
-       return Optional.empty();
+        return Optional.empty();
     }
+
+    public Optional<Ticket> rechercherTicket(String id) {
+            return repository.getTickets()
+                    .stream()
+                    .filter(ticket -> ticket.getId().equals(id))
+                    .findFirst()
+                    .orElseThrow(() -> new TicketNotFoundException("Ticket introuvable avec id: " + id));
+        }
 
 
 }
