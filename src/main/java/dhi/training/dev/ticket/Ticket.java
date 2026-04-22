@@ -100,5 +100,13 @@ public class Ticket {
                 LocalDateTime.now()
         );
     }
+    public void assignTo(String technician) {
+        if (technician == null || technician.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le technicien est obligatoire");
+        }
 
+        this.assignedTo = technician;
+        this.assignedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
 }

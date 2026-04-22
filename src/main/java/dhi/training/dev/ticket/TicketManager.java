@@ -69,24 +69,28 @@ public class TicketManager {
         }
     }
 
-    public Optional<Ticket> presentTicketById(String id) {
-        for (Ticket ticket : repository.getTickets()) {
-            if (ticket.getId().equals(id)) {
-                System.out.println(ticket);
-                return Optional.of(ticket);
-            }
-        }
-        System.out.println("Ticket n'existe pas ");
-        return Optional.empty();
-    }
+//    public Optional<Ticket> presentTicketById(String id) {
+//        for (Ticket ticket : repository.getTickets()) {
+//            if (ticket.getId().equals(id)) {
+//                System.out.println(ticket);
+//                return Optional.of(ticket);
+//            }
+//        }
+//        System.out.println("Ticket n'existe pas ");
+//        return Optional.empty();
+//    }
 
     public Optional<Ticket> rechercherTicket(String id) {
-            return repository.getTickets()
+            return Optional.of(repository.getTickets()
                     .stream()
                     .filter(ticket -> ticket.getId().equals(id))
                     .findFirst()
-                    .orElseThrow(() -> new TicketNotFoundException("Ticket introuvable avec id: " + id));
+                    .orElseThrow(() -> new TicketNotFoundException("Ticket introuvable avec id: " + id)));
         }
 
-
+    public Ticket assignTicketToTechnician(String ticketId, String technician) {
+        Optional<Ticket> ticket = rechercherTicket(ticketId);
+        ticket.get().assignTo(technician);
+        return ticket.orElse(null);
+    }
 }
