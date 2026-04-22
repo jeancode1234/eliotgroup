@@ -1,0 +1,11 @@
+id,title,description,priority,requester,service,occurredAt,openedAt,status,closedAt,resolvedAt,assignedTo,assignedAt,createdAt,updatedAt
+1a2b3c4d-001,Erreur login,Impossible de se connecter,MEDIUM,jdupont,IT,2026-04-01T08:30:00,2026-04-01T08:45:00,OPEN,,,,,2026-04-01T08:45:00,2026-04-01T08:45:00
+1a2b3c4d-002,Serveur down,Le serveur ne répond plus,HIGH,mmanga,INFRA,2026-04-02T10:15:00,2026-04-02T10:20:00,RESOLVED,,2026-04-02T11:00:00,admin1,2026-04-02T10:25:00,2026-04-02T10:20:00,2026-04-02T11:00:00
+1a2b3c4d-003,Bug affichage,Problème UI sur dashboard,LOW,akone,FRONT,2026-04-03T09:00:00,2026-04-03T09:10:00,CLOSED,2026-04-03T12:00:00,2026-04-03T11:30:00,dev2,2026-04-03T09:30:00,2026-04-03T09:10:00,2026-04-03T12:00:00
+1a2b3c4d-004,Erreur paiement,Transaction refusée,HIGH,ebanda,FINANCE,2026-04-04T14:20:00,2026-04-04T14:25:00,OPEN,,,,,2026-04-04T14:25:00,2026-04-04T14:25:00
+4b950b32-c943-4a1f-8390-9cd4ef29ad33,Imprimante en panne,L'imprimante n'imprime plus,HIGH,M Conclusion,Service RH,2026-04-01T12:30,2026-04-06T11:53:33.755124748,OPEN,,,,,2026-04-06T11:53:33.755138909,2026-04-06T11:53:33.755144009
+2501b63c-072c-4493-bde7-abd439a64893,Scanner en panne,L'imprimante n'imprime plus,CRITICAL,M Introduction,Direction Général,2026-04-01T12:30,2026-04-06T11:53:33.755701485,OPEN,,,,,2026-04-06T11:53:33.755708507,2026-04-06T11:53:33.755713045
+54252e17-a61f-43b4-841f-be7b00a46bfe,Imprimante en panne,L'imprimante n'imprime plus,HIGH,M Conclusion,Service RH,2026-04-01T12:30,2026-04-06T12:08:37.256305968,OPEN,,,,,2026-04-06T12:08:37.256321825,2026-04-06T12:08:37.256326828
+104a3d30-3b05-42a4-aeab-b53902bd6c79,Scanner en panne,L'imprimante n'imprime plus,CRITICAL,M Introduction,Direction Général,2026-04-01T12:30,2026-04-06T12:08:37.257112361,OPEN,,,,,2026-04-06T12:08:37.257120833,2026-04-06T12:08:37.257125583
+03167260-1fd1-4575-a3ad-2a67f0835f02,Imprimante en panne,L'imprimante n'imprime plus,HIGH,M Conclusion,Service RH,2026-04-01T12:30,2026-04-06T12:08:59.582212369,OPEN,,,,,2026-04-06T12:08:59.582233194,2026-04-06T12:08:59.582241215
+1870f9b6-3ce4-4c02-8b2a-de99ee6c84ad,Scanner en panne,L'imprimante n'imprime plus,CRITICAL,M Introduction,Direction Général,2026-04-01T12:30,2026-04-06T12:08:59.583084135,OPEN,,,,,2026-04-06T12:08:59.583097594,2026-04-06T12:08:59.583105099
