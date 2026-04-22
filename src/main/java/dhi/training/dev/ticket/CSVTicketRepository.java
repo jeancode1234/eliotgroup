@@ -126,5 +126,20 @@ public class CSVTicketRepository implements TicketRepository {
             throw new RuntimeException("Erreur lors de l'export CSV", e);
         }
     }
+    public Set<Ticket> loadTicketsFromCsv(String fileName) {
+        Set<Ticket> tickets = new HashSet<>();
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line = reader.readLine(); // header
+            while ((line = reader.readLine()) != null) {
+                if (!line.isBlank()) {
+                    tickets.add(parseTicket(line));
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Erreur lors de l'import CSV", e);
+        }
+
+        return tickets;
+    }
 }

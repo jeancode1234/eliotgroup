@@ -125,4 +125,12 @@ public class TicketManager {
     public void exportTicketsToCsv() {
         repository.saveTickets(repository.getTickets());
     }
+    public void importTicketsFromCsv(String fileName) {
+        if (!(repository instanceof CSVTicketRepository csvRepository)) {
+            throw new IllegalStateException("Le repository courant ne supporte pas l'import CSV");
+        }
+
+        Set<Ticket> importedTickets = csvRepository.loadTicketsFromCsv(fileName);
+        repository.saveTickets(importedTickets);
+    }
 }
