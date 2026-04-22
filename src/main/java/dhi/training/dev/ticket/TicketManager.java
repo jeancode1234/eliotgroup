@@ -93,4 +93,10 @@ public class TicketManager {
         ticket.get().assignTo(technician);
         return ticket.orElse(null);
     }
+
+    public Ticket changeTicketStatus(String ticketId, TicketStatus newStatus) {
+        Optional<Ticket> ticket = rechercherTicket(ticketId);
+        ticket.get().changeStatus(newStatus);
+        return ticket.orElse(null);
+    }
 }

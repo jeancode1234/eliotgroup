@@ -109,4 +109,21 @@ public class Ticket {
         this.assignedAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
+    public void changeStatus(TicketStatus newStatus) {
+        if (newStatus == null) {
+            throw new IllegalArgumentException("Le statut est obligatoire");
+        }
+
+        this.status = newStatus;
+
+        if (newStatus == TicketStatus.RESOLVED && this.resolvedAt == null) {
+            this.resolvedAt = LocalDateTime.now();
+        }
+
+        if (newStatus == TicketStatus.CLOSED && this.closedAt == null) {
+            this.closedAt = LocalDateTime.now();
+        }
+
+        this.updatedAt = LocalDateTime.now();
+    }
 }
