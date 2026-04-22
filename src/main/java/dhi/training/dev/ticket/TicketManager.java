@@ -81,12 +81,33 @@ public class TicketManager {
     }
 
     public Optional<Ticket> rechercherTicket(String id) {
-            return repository.getTickets()
+            return Optional.of(repository.getTickets()
                     .stream()
                     .filter(ticket -> ticket.getId().equals(id))
                     .findFirst()
-                    .orElseThrow(() -> new TicketNotFoundException("Ticket introuvable avec id: " + id));
+                    .orElseThrow(() -> new TicketNotFoundException("Ticket introuvable avec id: " + id)));
         }
+    public void printStatistics() {
+        Set<Ticket> tickets = repository.getTickets();
 
+        long total = tickets.size();
+        long open = tickets.stream().filter(t -> t.getStatus() == TicketStatus.OPEN).count();
+        long resolved = tickets.stream().filter(t -> t.getStatus() == TicketStatus.RESOLVED).count();
+        long closed = tickets.stream().filter(t -> t.getStatus() == TicketStatus.CLOSED).count();
+        long critical = tickets.stream().filter(t -> t.getPriority() == Priority.CRITICAL).count();
+
+        double avgResolutionHours = tickets.stream()
+                .filter(t -> t.getResolvedAt() != null)
+                .mapToLong(t -> java.time.Duration.between(t.getOpenedAt(), t.getResolvedAt()).toHours())
+                .average()
+                .orElse(0.0);
+        System.out.println("=== Statistiques Tickets ===");
+        System.out.println("Total: " + total);
+        System.out.println("OPEN: " + open);
+        System.out.println("RESOLVED: " + resolved);
+        System.out.println("CLOSED: " + closed);
+        System.out.println("CRITICAL: " + critical);
+        System.out.println("Temps moyen de résolution (heures): " + avgResolutionHours);
+    }
 
 }
