@@ -1,9 +1,9 @@
 package dhi.training.dev;
 
-import dhi.training.dev.ticket.CSVTicketRepository;
+import dhi.training.dev.ticket.services.CSVTicketRepository;
 import dhi.training.dev.ticket.Priority;
 import dhi.training.dev.ticket.Ticket;
-import dhi.training.dev.ticket.TicketManager;
+import dhi.training.dev.ticket.services.TicketService;
 import dhi.training.dev.ticket.TicketNotFoundException;
 import dhi.training.dev.ticket.TicketStatus;
 
@@ -15,7 +15,7 @@ import java.util.Set;
 public class App {
 
     public static void main(String[] args) {
-        TicketManager manager = new TicketManager(new CSVTicketRepository());
+        TicketService manager = new TicketService(new CSVTicketRepository());
         Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
@@ -83,7 +83,7 @@ public class App {
         System.out.print("Votre choix: ");
     }
 
-    private static void createTicket(TicketManager manager, Scanner scanner) {
+    private static void createTicket(TicketService manager, Scanner scanner) {
         System.out.print("Titre: ");
         String title = scanner.nextLine();
 
@@ -106,7 +106,7 @@ public class App {
         System.out.println("Ticket cree.");
     }
 
-    private static void showTicketById(TicketManager manager, Scanner scanner) {
+    private static void showTicketById(TicketService manager, Scanner scanner) {
         System.out.print("Id ticket: ");
         String id = scanner.nextLine().trim();
 
@@ -118,7 +118,7 @@ public class App {
         }
     }
 
-    private static void listByPriority(TicketManager manager, Scanner scanner) {
+    private static void listByPriority(TicketService manager, Scanner scanner) {
         Priority priority = askPriority(scanner);
         Set<Ticket> tickets = manager.findAllByPriority(priority);
 
@@ -130,7 +130,7 @@ public class App {
         tickets.forEach(System.out::println);
     }
 
-    private static void assignTicket(TicketManager manager, Scanner scanner) {
+    private static void assignTicket(TicketService manager, Scanner scanner) {
         System.out.print("Id ticket: ");
         String ticketId = scanner.nextLine().trim();
 
@@ -141,7 +141,7 @@ public class App {
         System.out.println("Ticket assigne: " + ticket.getId());
     }
 
-    private static void changeStatus(TicketManager manager, Scanner scanner) {
+    private static void changeStatus(TicketService manager, Scanner scanner) {
         System.out.print("Id ticket: ");
         String ticketId = scanner.nextLine().trim();
 
@@ -151,7 +151,7 @@ public class App {
         System.out.println("Statut mis a jour: " + ticket.getStatus());
     }
 
-    private static void importTickets(TicketManager manager, Scanner scanner) {
+    private static void importTickets(TicketService manager, Scanner scanner) {
         System.out.print("Nom du fichier CSV (ex: tickets.csv): ");
         String fileName = scanner.nextLine().trim();
 

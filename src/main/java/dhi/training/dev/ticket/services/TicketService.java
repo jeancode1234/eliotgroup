@@ -1,15 +1,17 @@
-package dhi.training.dev.ticket;
+package dhi.training.dev.ticket.services;
+
+import dhi.training.dev.ticket.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-public class TicketManager {
+public class TicketService {
 
     private final TicketRepository repository;
 
-    public TicketManager(TicketRepository repository) {
+    public TicketService(TicketRepository repository) {
         this.repository = repository;
     }
 

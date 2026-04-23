@@ -1,4 +1,7 @@
-package dhi.training.dev.ticket;
+package dhi.training.dev.ticket.services;
+
+import dhi.training.dev.ticket.Ticket;
+import dhi.training.dev.ticket.TicketRepository;
 
 import java.util.Collection;
 import java.util.Set;

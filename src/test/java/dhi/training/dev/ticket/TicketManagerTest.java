@@ -1,5 +1,6 @@
 package dhi.training.dev.ticket;
 
+import dhi.training.dev.ticket.services.TicketService;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -12,9 +13,9 @@ public class TicketManagerTest {
     @Test
     public void openValidTicket() {
 
-        TicketManager ticketManager = new TicketManager(new InMemoryTicketRepository());
+        TicketService ticketService = new TicketService(new InMemoryTicketRepository());
 
-        ticketManager.openTicket(
+        ticketService.openTicket(
                 "Imprimante en panne",
                 "L'imprimante n'imprime plus",
                 Priority.HIGH,
@@ -23,7 +24,7 @@ public class TicketManagerTest {
                 LocalDateTime.of(2026, 4, 1, 12, 30)
         );
 
-        Ticket ticket = ticketManager.findTicketByTitle("Imprimante en panne")
+        Ticket ticket = ticketService.findTicketByTitle("Imprimante en panne")
                 .orElse(null);
 
         assertNotNull(ticket);
@@ -36,11 +37,11 @@ public class TicketManagerTest {
     @Test()
     public void openInvalidTicketOccurredAt() {
 
-        TicketManager ticketManager = new TicketManager(new InMemoryTicketRepository());
+        TicketService ticketService = new TicketService(new InMemoryTicketRepository());
 
         assertThrows(
                 IllegalArgumentException.class,
-                () -> ticketManager.openTicket(
+                () -> ticketService.openTicket(
                         "Imprimante en panne",
                         "L'imprimante n'imprime plus",
                         Priority.HIGH,
