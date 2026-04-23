@@ -1,5 +1,7 @@
 package dhi.training.dev.ticket;
 
+import dhi.training.dev.ticket.enums.Priority;
+import dhi.training.dev.ticket.enums.TicketStatus;
 import dhi.training.dev.ticket.services.TicketService;
 import org.junit.Test;
 

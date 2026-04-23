@@ -1,9 +1,9 @@
 package dhi.training.dev.ticket.services;
 
-import dhi.training.dev.ticket.Priority;
+import dhi.training.dev.ticket.enums.Priority;
 import dhi.training.dev.ticket.Ticket;
 import dhi.training.dev.ticket.TicketRepository;
-import dhi.training.dev.ticket.TicketStatus;
+import dhi.training.dev.ticket.enums.TicketStatus;
 
 import java.io.*;
 import java.time.LocalDateTime;

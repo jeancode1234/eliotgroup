@@ -1,4 +1,4 @@
-package dhi.training.dev.ticket;
+package dhi.training.dev.ticket.enums;
 
 public enum Priority {
 

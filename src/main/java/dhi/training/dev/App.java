@@ -1,11 +1,11 @@
 package dhi.training.dev;
 
 import dhi.training.dev.ticket.services.CSVTicketRepository;
-import dhi.training.dev.ticket.Priority;
+import dhi.training.dev.ticket.enums.Priority;
 import dhi.training.dev.ticket.Ticket;
 import dhi.training.dev.ticket.services.TicketService;
 import dhi.training.dev.ticket.TicketNotFoundException;
-import dhi.training.dev.ticket.TicketStatus;
+import dhi.training.dev.ticket.enums.TicketStatus;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
